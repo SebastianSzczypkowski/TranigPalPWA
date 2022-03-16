@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  User: any = ['Super Admin', 'Author', 'Reader'];
+  User: any = ['casual', 'intermediate', 'advanced','personal trainer','dietitian'];
 
   constructor() { }
 

@@ -1,0 +1,11 @@
+.exercise-page-container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+
+}
+ion-icon {
+  font-size: 64px;
+}

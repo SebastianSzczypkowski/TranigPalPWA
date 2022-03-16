@@ -19,13 +19,19 @@ import {MatMenuModule} from "@angular/material/menu";
 import { HomeComponent } from './components/home/home.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import { ExerciseComponent } from './components/exercise/exercise.component';
+import { FoodComponent } from './components/food/food.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ExerciseComponent,
+    FoodComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,9 @@ import {MatInputModule} from "@angular/material/input";
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    NgbModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
