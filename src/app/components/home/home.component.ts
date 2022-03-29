@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenService} from "../../services/token.service";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn= false;
+  constructor(private tokenStorage:TokenService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn= !!this.tokenStorage.getToken();
+
   }
 
 }

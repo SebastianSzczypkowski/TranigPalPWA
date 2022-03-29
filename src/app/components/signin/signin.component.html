@@ -1,28 +1,54 @@
 <div class="example-container">
 <mat-card>
   <mat-card-content>
-    <form >
+    <form  *ngIf="!isLoggedIn"
+           name="form"
+           (ngSubmit)="f.form.valid && onSubmit()"
+           #f="ngForm"
+           novalidate>
       <h2>Log In</h2>
       <mat-error >
         The username and password were not recognized
       </mat-error>
       <mat-form-field appearance="fill">
-        <input matInput placeholder="Email" >
+        <input matInput placeholder="username"
+               name="username"
+               [(ngModel)]="form.username"
+               required
+               minlength="4"
+               #password="ngModel">
         <mat-error>
           Please provide a valid email address
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" >
-        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password"  >
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password"
+               name="password"
+               type="password"
+               [(ngModel)]="form.password"
+               required
+               minlength="6"
+               #password="ngModel">
         <mat-error>
           Please provide a valid password
         </mat-error>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+
       </mat-form-field>
-      <button mat-raised-button color="primary"  >Login</button>
+      <button mat-raised-button color="primary"   >Login</button>
+      <div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="f.submitted && isLoginFailed"
+      >
+        Login failed: {{ errorMessage }}
+      </div>
     </form>
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in as {{ username }}.
+    </div>
   </mat-card-content>
 </mat-card>
 </div>

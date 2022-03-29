@@ -1,6 +1,6 @@
 <div class="start-page-container">
-  <mat-card>
-    <mat-card-content>
+  <mat-card *ngIf="!isLoggedIn">
+    <mat-card-content >
 
         <h2>Start</h2>
         <p><button mat-raised-button color="primary" routerLink="/signin" >Login</button></p>

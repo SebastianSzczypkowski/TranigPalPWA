@@ -5,17 +5,33 @@
     </mat-card-header>
 
       <mat-card-content>
-        <form >
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <mat-form-field >
-          <input matInput placeholder="Username">
+          <input matInput placeholder="Username"
+                 name="username"
+                 [(ngModel)]="form.username"
+                 required
+                 minlength="3"
+                 maxlength="20"
+                 #username="ngModel">
         </mat-form-field>
 
         <mat-form-field >
-          <input matInput placeholder="Email">
+          <input matInput placeholder="Email"
+                 name="email"
+                 [(ngModel)]="form.email"
+                 required
+                 email
+                 #email="ngModel">
         </mat-form-field>
 
         <mat-form-field >
-          <input matInput placeholder="Password">
+          <input matInput placeholder="Password"
+                 name="password"
+                 [(ngModel)]="form.password"
+                 required
+                 minlength="6"
+                 #password="ngModel">
         </mat-form-field>
 
         <mat-form-field>
@@ -25,11 +41,19 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        </form>
 
+
+    <button mat-raised-button color="primary" >Register</button>
+          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+            Signup failed!<br />{{ errorMessage }}
+          </div>
+        </form>
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          Your registration is successful!
+        </div>
       </mat-card-content>
 
-      <button mat-raised-button color="primary" >Register</button>
+
 
 
   </mat-card>

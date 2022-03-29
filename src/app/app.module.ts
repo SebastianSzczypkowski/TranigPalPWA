@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SigninComponent } from './components/signin/signin.component';
 import { RegisterComponent } from './components/register/register.component';
 import {MatCardModule} from "@angular/material/card";
@@ -23,6 +23,8 @@ import { ExerciseComponent } from './components/exercise/exercise.component';
 import { FoodComponent } from './components/food/food.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IonicModule } from '@ionic/angular';
+import {authInterceptorProviders} from "./services/auth.interceptor";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -54,9 +56,11 @@ import { IonicModule } from '@ionic/angular';
     MatButtonModule,
     MatInputModule,
     NgbModule,
+    HttpClientModule,
+    FormsModule,
     IonicModule.forRoot()
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
