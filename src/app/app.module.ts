@@ -25,6 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IonicModule } from '@ionic/angular';
 import {authInterceptorProviders} from "./services/auth.interceptor";
 import {HttpClientModule} from "@angular/common/http";
+import { AddExerciseComponent } from './components/exercise/add-exercise/add-exercise.component';
+import { AddFoodComponent } from './components/food/add-food/add-food.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {HttpClientModule} from "@angular/common/http";
     RegisterComponent,
     HomeComponent,
     ExerciseComponent,
-    FoodComponent
+    FoodComponent,
+    AddExerciseComponent,
+    AddFoodComponent
   ],
   imports: [
     BrowserModule,

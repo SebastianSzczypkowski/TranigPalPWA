@@ -1,0 +1,54 @@
+<div class="exercise-form">
+  <mat-card >
+    <mat-card-header>
+      <mat-card-title>Add Exercise</mat-card-title>
+    </mat-card-header>
+      <mat-card-content>
+
+        <form name="form" (ngSubmit)="f.form.valid && addExercise()" #f="ngForm" novalidate>
+          <mat-form-field >
+            <input matInput placeholder="Name" name="name"
+                   [(ngModel)]="form.name"
+                   required
+                   minlength="3"
+                   maxlength="45"
+                   #name="ngModel">
+          </mat-form-field>
+
+          <mat-form-field >
+            <mat-label>Select number of repetitions</mat-label>
+            <input matInput type="number" step="1"  name="numberOfRepitision"
+                   [(ngModel)]="form.numberOfRepitision"
+                   required
+                   minlength="3"
+                   maxlength="5"
+                   #numberOfRepitision="ngModel">
+          </mat-form-field>
+          <mat-form-field >
+            <mat-label>Select number of series</mat-label>
+            <input matInput type="number" step="1"  name="numberOfSeries"
+                   [(ngModel)]="form.numberOfSeries"
+                   required
+                   minlength="3"
+                   maxlength="5"
+                   #numberOfSeries="ngModel">
+          </mat-form-field>
+          <mat-form-field >
+            <mat-label>Duration [ in seconds ]</mat-label>
+            <input matInput type="number" step="1"  name="duration"
+                   [(ngModel)]="form.duration"
+                   required
+                   minlength="3"
+                   maxlength="5"
+                   #duration="ngModel">
+          </mat-form-field>
+
+          <p>
+          <button mat-raised-button color="primary" >Add</button>
+          </p>
+
+        </form>
+
+        </mat-card-content>
+  </mat-card>
+</div>

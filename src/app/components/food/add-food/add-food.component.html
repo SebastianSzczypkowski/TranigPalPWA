@@ -1,0 +1,72 @@
+<div class="food-form">
+  <mat-card >
+    <mat-card-header>
+      <mat-card-title>Add Food</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <form name="form" (ngSubmit)="f.form.valid && addFood()" #f="ngForm" novalidate>
+        <mat-form-field >
+          <input matInput placeholder="Name" name="name"
+                 [(ngModel)]="form.name"
+                 required
+                 minlength="3"
+                 maxlength="45"
+                 #name="ngModel">
+        </mat-form-field>
+
+        <mat-form-field >
+          <mat-label>Calories</mat-label>
+          <input matInput type="number" step="1"  name="calories"
+                 [(ngModel)]="form.calories"
+                 required
+                 minlength="1"
+                 maxlength="5"
+                 #calories="ngModel">
+        </mat-form-field>
+        <mat-form-field >
+          <mat-label>Carbohydrates</mat-label>
+          <input matInput type="number" step="1"  name="carbohydrates"
+                 [(ngModel)]="form.carbohydrates"
+                 required
+                 minlength="3"
+                 maxlength="5"
+                 #carbohydrates="ngModel">
+        </mat-form-field>
+        <mat-form-field >
+          <mat-label>Protein</mat-label>
+          <input matInput type="number" step="1"  name="protein"
+                 [(ngModel)]="form.protein"
+                 required
+                 minlength="3"
+                 maxlength="5"
+                 #protein="ngModel">
+        </mat-form-field>
+        <mat-form-field >
+          <mat-label>Sugar</mat-label>
+          <input matInput type="number" step="1"  name="sugar"
+                 [(ngModel)]="form.sugar"
+                 required
+                 minlength="3"
+                 maxlength="5"
+                 #sugar="ngModel">
+        </mat-form-field>
+        <mat-form-field >
+          <mat-label>Fat</mat-label>
+          <input matInput type="number" step="1"  name="fat"
+                 [(ngModel)]="form.fat"
+                 required
+                 minlength="3"
+                 maxlength="5"
+                 #fat="ngModel">
+        </mat-form-field>
+
+        <p>
+          <button mat-raised-button color="primary" >Add</button>
+        </p>
+
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>
