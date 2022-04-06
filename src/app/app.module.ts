@@ -27,6 +27,9 @@ import {authInterceptorProviders} from "./services/auth.interceptor";
 import {HttpClientModule} from "@angular/common/http";
 import { AddExerciseComponent } from './components/exercise/add-exercise/add-exercise.component';
 import { AddFoodComponent } from './components/food/add-food/add-food.component';
+import {MatTableModule} from "@angular/material/table";
+import {SearchFoodComponent} from "./components/food/search-food/search-food.component";
+
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { AddFoodComponent } from './components/food/add-food/add-food.component'
     ExerciseComponent,
     FoodComponent,
     AddExerciseComponent,
-    AddFoodComponent
+    AddFoodComponent,
+    SearchFoodComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,8 @@ import { AddFoodComponent } from './components/food/add-food/add-food.component'
     NgbModule,
     HttpClientModule,
     FormsModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    MatTableModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

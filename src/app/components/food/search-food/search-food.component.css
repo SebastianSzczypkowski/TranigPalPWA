@@ -1,0 +1,19 @@
+.food-search-page-container
+{
+ /*// display: flex;*/
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  margin-top: 10vh;
+  margin-left: 5vh;
+
+}
+
+mat-raised-button
+{
+  display: block;
+}
+button{
+  display:inline-block;
+  width: 30vh ;
+}

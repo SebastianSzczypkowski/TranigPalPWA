@@ -14,6 +14,7 @@ export class AddExerciseComponent implements OnInit {
   addExerciseForm!: FormGroup;
   isSuccessful = false;
   errorMessage = '';
+  checkIfWeight:boolean =false;
   constructor(private formBuilder:FormBuilder,private router:Router,private exerciseService:ExerciseService) { }
 
   ngOnInit(): void {
@@ -23,9 +24,10 @@ export class AddExerciseComponent implements OnInit {
         exercise:this.formBuilder.group(
           {
             name:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
-            numberOfRepitision:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
+            theNumberOfRepetitions:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
             numberOfSeries:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
             duration:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
+            // weight:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
           }
         )
       }
@@ -36,7 +38,6 @@ export class AddExerciseComponent implements OnInit {
 
     this.exerciseService.add(this.form).subscribe(
       data => {
-        console.log(data);
         this.isSuccessful = true;
       },
       err => {

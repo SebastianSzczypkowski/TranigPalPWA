@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Exercise} from "../model/exercise";
 
 const AUTH_API = 'http://localhost:8080/api/exercise/';
 const httpOptions={
@@ -18,9 +19,13 @@ export class ExerciseService {
   add(exercise:any):Observable<any>{
     return this.http.post(AUTH_API+'add',{
       name:exercise.name,
-      numberOfRepitision:exercise.numberOfRepitision,
-      numberOfSeries:exercise.numberOfSeries,
+       numberOfSeries:exercise.numberOfSeries,
       duration:exercise.duration,
+      theNumberOfRepetitions: exercise.theNumberOfRepetitions,
     },httpOptions);
+  }
+
+  getFromToday(){
+    return this.http.get<Exercise[]>(AUTH_API+'from-today')
   }
 }

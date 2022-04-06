@@ -1,0 +1,15 @@
+<div class="food-search-page-container">
+
+<form form name="form" (ngSubmit)=" searchFood()" >
+  Wyszukaj :
+  <mat-form-field>
+    <input matInput placeholder="Name" name="name"
+           [(ngModel)]="form.name"
+           required
+           minlength="3"
+           maxlength="45"
+           #name="ngModel">
+  </mat-form-field>
+</form>
+
+</div>

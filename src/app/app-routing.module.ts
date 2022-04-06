@@ -7,6 +7,7 @@ import {ExerciseComponent} from "./components/exercise/exercise.component";
 import {FoodComponent} from "./components/food/food.component";
 import {AddExerciseComponent} from "./components/exercise/add-exercise/add-exercise.component";
 import {AddFoodComponent} from "./components/food/add-food/add-food.component";
+import {SearchFoodComponent} from "./components/food/search-food/search-food.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'add-exercise', component: AddExerciseComponent },
   { path: 'food', component: FoodComponent },
   { path: 'add-food', component: AddFoodComponent },
+  { path: 'search-food', component: SearchFoodComponent },
 
 
 ];
