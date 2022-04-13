@@ -5,42 +5,42 @@
     </mat-card-header>
       <mat-card-content>
 
-        <form name="form" (ngSubmit)="f.form.valid && addExercise()" #f="ngForm" novalidate>
+        <form [formGroup]="addExerciseForm" (ngSubmit)=" addExercise()" >
           <mat-form-field >
             <input matInput placeholder="Name" name="name"
-                   [(ngModel)]="form.name"
+                   formControlName="name"
                    required
                    minlength="3"
                    maxlength="45"
-                   #name="ngModel">
+                   >
           </mat-form-field>
 
           <mat-form-field >
             <mat-label>Select number of repetitions</mat-label>
             <input matInput type="number" step="1"  name="theNumberOfRepetitions"
-                   [(ngModel)]="form.theNumberOfRepetitions"
+                   formControlName="theNumberOfRepetitions"
                    required
                    minlength="3"
                    maxlength="5"
-                   #theNumberOfRepetitions="ngModel">
+                   >
           </mat-form-field>
           <mat-form-field >
             <mat-label>Select number of series</mat-label>
             <input matInput type="number" step="1"  name="numberOfSeries"
-                   [(ngModel)]="form.numberOfSeries"
+                   formControlName="numberOfSeries"
                    required
                    minlength="3"
                    maxlength="5"
-                   #numberOfSeries="ngModel">
+                  >
           </mat-form-field>
           <mat-form-field >
             <mat-label>Duration [ in seconds ]</mat-label>
             <input matInput type="number" step="1"  name="duration"
-                   [(ngModel)]="form.duration"
+                   formControlName="duration"
                    required
                    minlength="1"
                    maxlength="5"
-                   #duration="ngModel">
+                   >
           </mat-form-field>
 <!--          <mat-form-field >-->
 <!--            <mat-label>Weight [ in kg ]</mat-label>-->

@@ -9,6 +9,7 @@ import {AddExerciseComponent} from "./components/exercise/add-exercise/add-exerc
 import {AddFoodComponent} from "./components/food/add-food/add-food.component";
 import {SearchFoodComponent} from "./components/food/search-food/search-food.component";
 
+
 const routes: Routes = [
   {
     path: '',

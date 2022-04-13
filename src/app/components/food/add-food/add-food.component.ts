@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {FoodService} from "../../../services/food.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-add-food',
@@ -10,17 +11,16 @@ import {FoodService} from "../../../services/food.service";
 })
 export class AddFoodComponent implements OnInit {
 
-  form:any={};
   addFoodForm!: FormGroup;
   isSuccessful = false;
   errorMessage = '';
-  constructor(private formBuilder:FormBuilder,private router:Router,private foodService:FoodService) { }
+  constructor(private formBuilder:FormBuilder,private router:Router,
+              private foodService:FoodService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
 
     this.addFoodForm=this.formBuilder.group(
-      {
-        food:this.formBuilder.group(
+
           {
             name:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
             calories:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
@@ -28,21 +28,22 @@ export class AddFoodComponent implements OnInit {
             protein:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
             sugar:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
             fat:new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]),
-          }
-        )
+
       }
     )
   }
 
   addFood():void{
 
-    this.foodService.add(this.form).subscribe(
+    this.foodService.add(this.addFoodForm).subscribe(
       data => {
-        console.log(data);
+        this.toastr.success("Dodano posiłek","Success")
         this.isSuccessful = true;
+        this.addFoodForm.reset();
       },
       err => {
         this.errorMessage = err.error.message;
+        this.toastr.error("Nie udało się dodac posiłku","Error")
       }
     );
   }

@@ -29,6 +29,7 @@ import { AddExerciseComponent } from './components/exercise/add-exercise/add-exe
 import { AddFoodComponent } from './components/food/add-food/add-food.component';
 import {MatTableModule} from "@angular/material/table";
 import {SearchFoodComponent} from "./components/food/search-food/search-food.component";
+import {ToastrModule} from "ngx-toastr";
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import {SearchFoodComponent} from "./components/food/search-food/search-food.com
     FoodComponent,
     AddExerciseComponent,
     AddFoodComponent,
-    SearchFoodComponent
+    SearchFoodComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +68,8 @@ import {SearchFoodComponent} from "./components/food/search-food/search-food.com
     HttpClientModule,
     FormsModule,
     IonicModule.forRoot(),
-    MatTableModule
+    MatTableModule,
+    ToastrModule.forRoot()
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

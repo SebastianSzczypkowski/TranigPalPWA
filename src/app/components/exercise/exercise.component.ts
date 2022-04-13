@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ExerciseEmmiterService} from "./service/exercise-emmiter.service";
 
 @Component({
   selector: 'app-exercise',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExerciseComponent implements OnInit {
 
-  constructor() { }
+  typeOfExercise!: number;
+  constructor(private exersiceEmmiter:ExerciseEmmiterService) { }
 
   ngOnInit(): void {
+  }
+
+
+  typeInfo(number: number) {
+    this.typeOfExercise=number;
+    this.exersiceEmmiter.onClick(number);
   }
 
 }
